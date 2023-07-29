@@ -1,0 +1,25 @@
+{
+    "settings": {},
+    "dotfiles": [
+        {
+            "label": "root/.zshenv",
+            "path": "__home/.zshenv"
+        },
+        {
+            "label": "Wezterm",
+            "path": "__config/wezterm"
+        },
+        {
+            "label": "Neovim",
+            "path": "__config/nvim"
+        },
+        {
+            "label": "TMUX",
+            "path": "__config/tmux"
+        },
+        {
+            "label": "ZSH",
+            "path": "__config/zsh"
+        }
+    ]
+}
