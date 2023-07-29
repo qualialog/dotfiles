@@ -20,6 +20,10 @@
         {
             "label": "ZSH",
             "path": "__config/zsh"
+        },
+        {
+            "label": "scriptkit",
+            "path": "__home/.kenv/scripts"
         }
     ]
 }
