@@ -24,6 +24,10 @@
         {
             "label": "scriptkit",
             "path": "__home/.kenv/scripts"
+        },
+        {
+            "label": "rectangle",
+            "path": "__config/rectangle"
         }
     ]
 }
