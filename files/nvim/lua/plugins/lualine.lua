@@ -51,6 +51,16 @@ return {
                 },
                 lualine_x = {
                     {
+                        function()
+                            return vim.fn.getcwd()
+                        end,
+                        fmt = function(str)
+                            str = str:gsub('%/Users/qualialog/', '~')
+                            str = str:gsub('%~Documents/', 'docs/')
+                            return str
+                        end,
+                    },
+                    {
                         'diagnostics',
                         sources = {
                             'nvim_diagnostic',
@@ -67,7 +77,6 @@ return {
                     {
                         require('lazy.status').updates,
                         cond = require('lazy.status').has_updates,
-                        color = { fg = '#ff9e64' },
                     },
                 },
                 lualine_z = {

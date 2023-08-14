@@ -27,7 +27,7 @@ return {
             keymap('n', 'gh', '<cmd>Lspsaga lsp_finder<CR>', opts)
             keymap({ 'n', 'v' }, '<leader>ca', '<cmd>Lspsaga code_action<CR>', opts)
             keymap('n', 'gr', '<cmd>Lspsaga rename<CR>', opts)
-            keymap('n', 'gr', '<cmd>Lspsaga rename ++project<CR>', opts)
+            -- keymap('n', 'gr', '<cmd>Lspsaga rename ++project<CR>', opts)
             keymap('n', 'gp', '<cmd>Lspsaga peek_definition<CR>', opts)
             keymap('n', 'gd', '<cmd>Lspsaga goto_definition<CR>', opts)
             keymap('n', 'gt', '<cmd>Lspsaga peek_type_definition<CR>', opts)

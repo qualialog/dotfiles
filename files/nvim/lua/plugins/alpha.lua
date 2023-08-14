@@ -18,9 +18,9 @@ return {
             btn.opts.position = 'center'
             btn.opts.width = 30
             btn.opts.hl_shortcut = {
-                { 'AlphaShortcut',           0,       1 },
-                { hl_shortcut or 'Operator', 1,       #sc + 1 },
-                { 'AlphaShortcut',           #sc + 1, #sc + 2 },
+                { 'AlphaShortcut', 0, 1 },
+                { hl_shortcut or 'Operator', 1, #sc + 1 },
+                { 'AlphaShortcut', #sc + 1, #sc + 2 },
             }
 
             return btn
@@ -42,11 +42,6 @@ return {
         local bottom_buttons = group {
             button('q', '  Quit', '<cmd>qa!<cr>', 'Keyword'),
         }
-
-        -- 'Type'
-        -- 'AlphaShortcut'
-        -- 'AlphaButtons'
-        -- 'Keyword'
 
         alpha.setup {
             layout = {
