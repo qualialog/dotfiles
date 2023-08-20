@@ -18,16 +18,16 @@ return {
             btn.opts.position = 'center'
             btn.opts.width = 30
             btn.opts.hl_shortcut = {
-                { 'AlphaShortcut', 0, 1 },
-                { hl_shortcut or 'Operator', 1, #sc + 1 },
-                { 'AlphaShortcut', #sc + 1, #sc + 2 },
+                { 'AlphaShortcut',           0,       1 },
+                { hl_shortcut or 'Operator', 1,       #sc + 1 },
+                { 'AlphaShortcut',           #sc + 1, #sc + 2 },
             }
 
             return btn
         end
 
         local top_buttons = group {
-            button('ff', ' Find file', '<cmd>Telescope find_files hidden=true no_ignore=true<cr>'),
+            button('ff', ' Find file', '<cmd>Telescope find_files<cr>'),
             button('fg', ' Find in files', '<cmd>Telescope live_grep<cr>'),
             button('fb', ' Browse Dir', '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>'),
             button('fz', ' Change Dir', '<cmd>Telescope zoxide list<cr>'),
