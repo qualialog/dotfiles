@@ -1,3 +1,6 @@
+local opts = { noremap = true, silent = true }
+local keymap = vim.api.nvim_set_keymap
+
 return {
     'nvim-lualine/lualine.nvim',
     event = 'VeryLazy',
@@ -13,6 +16,9 @@ return {
                 augroup END
             ]]
         local theme = require 'utils.lualine-theme'
+
+        keymap('n', '<leader>lh', "<cmd>lua require('lualine').hide()<cr>", opts)
+        keymap('n', '<leader>ls', "<cmd>lua require('lualine').hide({unhide=true})<cr>", opts)
 
         return {
             options = {

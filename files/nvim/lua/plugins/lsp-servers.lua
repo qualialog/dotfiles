@@ -25,6 +25,10 @@ return {
     },
     {
         'jay-babu/mason-null-ls.nvim',
+        dependencies = {
+            'williamboman/mason.nvim',
+            'nvimtools/none-ls.nvim',
+        },
         event = { 'BufReadPre', 'BufNewFile' },
         opts = function()
             local nls = require 'null-ls'
@@ -55,7 +59,7 @@ return {
         end,
     },
     {
-        'jose-elias-alvarez/null-ls.nvim',
+        'nvimtools/none-ls.nvim',
         opts = {},
     },
 }
