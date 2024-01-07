@@ -24,7 +24,7 @@ vim.opt.wrap = false
 vim.opt.textwidth = 0
 vim.opt.colorcolumn = ''
 
-vim.opt.signcolumn = 'no'
+vim.opt.signcolumn = 'number'
 vim.opt.isfname:append '@-@'
 
 vim.opt.updatetime = 50

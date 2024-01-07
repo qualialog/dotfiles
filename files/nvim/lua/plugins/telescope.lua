@@ -1,13 +1,13 @@
 return {
     {
         'nvim-telescope/telescope.nvim',
-        tag = '0.1.0',
+        tag = '0.1.3',
         dependencies = {
             'nvim-lua/plenary.nvim',
         },
         keys = {
             { '<leader>ff', '<cmd>Telescope find_files<cr>' },
-            { '<leader>fa', '<cmd>Telescope find_files hidden=true no_ignore=true<cr>' },
+            { '<leader>fa', '<cmd>Telescope find_files hidden=true no_ignore=true <cr>' },
             { '<leader>fg', '<cmd>Telescope live_grep<cr>' },
             { '<leader>fb', '<cmd>Telescope buffers<cr>' },
             { '<leader>fh', '<cmd>Telescope help_tags<cr>' },

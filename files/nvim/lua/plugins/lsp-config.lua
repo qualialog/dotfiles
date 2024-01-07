@@ -8,6 +8,7 @@ return {
         'b0o/schemastore.nvim',
         'hrsh7th/nvim-cmp',
         'hrsh7th/cmp-nvim-lsp',
+        'simrat39/rust-tools.nvim',
     },
     config = function()
         local lsp_config = require 'lspconfig'
@@ -60,6 +61,12 @@ return {
         }
 
         lsp_config.eslint.setup {
+            on_attach = function(_, bufnr)
+                vim.api.nvim_create_autocmd('BufWritePre', {
+                    buffer = bufnr,
+                    command = 'EslintFixAll',
+                })
+            end,
             capabilities = capabilities,
             bin = 'eslint_d',
             code_actions = {
@@ -73,6 +80,10 @@ return {
                     location = 'same_line',
                 },
             },
+            settings = {
+                workingDirectory = { mode = 'location' },
+            },
+            root_dir = lsp_config.util.find_git_ancestor,
             diagnostics = {
                 enable = true,
                 report_unused_disable_directives = false,

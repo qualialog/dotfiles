@@ -116,7 +116,7 @@ return {
                     }),
                 }),
                 experimental = {
-                    ghost_text = { enabled = true },
+                    -- ghost_text = { enabled = true },
                 },
             }
         end,

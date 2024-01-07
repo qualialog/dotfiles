@@ -52,6 +52,7 @@ return {
                 'regex',
                 'vim',
                 'bash',
+                'rust',
             },
             auto_install = true,
             highlight = {
@@ -63,6 +64,7 @@ return {
             },
             autotag = {
                 enable = true,
+                enable_close_on_slash = false,
             },
         }
     end,

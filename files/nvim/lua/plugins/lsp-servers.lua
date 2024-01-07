@@ -24,6 +24,16 @@ return {
         },
     },
     {
+        'jay-babu/mason-nvim-dap.nvim',
+        opts = function()
+            return {
+                ensure_installed = {
+                    'codelldb',
+                },
+            }
+        end,
+    },
+    {
         'jay-babu/mason-null-ls.nvim',
         dependencies = {
             'williamboman/mason.nvim',
@@ -32,15 +42,17 @@ return {
         event = { 'BufReadPre', 'BufNewFile' },
         opts = function()
             local nls = require 'null-ls'
+            local lsp_config = require 'lspconfig'
             return {
                 ensure_installed = {
                     'stylua',
                     'eslint_d',
-                    'prettierd',
+                    'prettier_d',
                     'mypy',
                     'ruff',
                     'black',
                     'debugpy',
+                    'rust-analyzer',
                 },
                 automatic_installation = false,
                 handlers = {
@@ -53,6 +65,16 @@ return {
                         env = {
                             ESLINT_D_LOCAL_ESLINT_ONLY = true,
                         },
+                        settings = {
+                            workingDirectory = { mode = 'location' },
+                        },
+                        root_dir = lsp_config.util.find_git_ancestor,
+                    },
+                    prettier_d = nls.builtins.formatting.prettierd.with {
+                        prefer_local = true,
+                        exe = 'prettierd',
+                        args = { vim.api.nvim_buf_get_name(0) },
+                        stdin = true,
                     },
                 },
             }

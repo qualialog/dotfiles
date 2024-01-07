@@ -1,17 +1,32 @@
 return {
     {
+        'mfussenegger/nvim-dap',
+        keys = {
+            { '<leader>dt', ':DapToggleBreakpoint<cr>', { silent = true } },
+            { '<leader>do', ':DapStepOver<cr>', desc = 'Step Over' },
+            { '<leader>dO', ':DapStepOut<cr>', desc = 'Step Out' },
+            { '<leader>dc', ':DapContinue<cr>', { silent = true } },
+            { '<leader>dx', ':DapTerminate<cr>', { silent = true } },
+        },
+    },
+    {
+        'theHamsta/nvim-dap-virtual-text',
+        opts = {},
+    },
+    {
         'rcarriga/nvim-dap-ui',
         dependencies = {
             'mfussenegger/nvim-dap',
         },
         keys = {
-            { '<leader>db', '<cmd> DapToggleBreakpoint<CR>' },
+            { '<leader>dut', ':lua require"dapui".toggle()<cr>', { silent = true } },
         },
         config = function()
             local dap = require 'dap'
             local dapui = require 'dapui'
 
             dapui.setup()
+
             dap.listeners.after.event_initialized['dapui_config'] = function()
                 dapui.open()
             end
@@ -23,30 +38,8 @@ return {
             dap.listeners.before.event_exited['dapui_config'] = function()
                 dapui.close()
             end
-        end,
-    },
-    {
-        'mfussenegger/nvim-dap',
-    },
-    {
-        'mfussenegger/nvim-dap-python',
-        ft = 'python',
-        dependencies = {
-            'mfussenegger/nvim-dap',
-            'rcarriga/nvim-dap-ui',
-        },
-        keys = {
-            {
-                '<leader>dpr',
-                function()
-                    require('dap-python').test_method()
-                end,
-            },
-        },
-        config = function()
-            local path = '~/.local/share/nvim/mason/packages/debugpy/venv/bin/python'
 
-            require('dap-python').setup(path)
+            require 'utils.dap-hl'()
         end,
     },
 }
